@@ -26,7 +26,18 @@ body {
   color: #fff;
 }
 
-header {
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  @media (width >= 640px) {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
+.header {
   .header-title {
     font-size: 3rem;
     font-weight: 700;
@@ -45,6 +56,7 @@ header {
 .column.main {
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .cart {
@@ -53,8 +65,13 @@ header {
 }
 
 .sidebar {
+  margin: 1rem 0;
   grid-area: sidebar;
   order: 2;
+
+  @media (width >= 640px) {
+    margin: 0;
+  }
 }
 
 .cart-discount {
@@ -63,13 +80,18 @@ header {
 }
 
 .cart-container {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-auto-flow: column;
-  grid-template-areas:
-    'cart cart cart sidebar sidebar'
-    'vouchers vouchers vouchers sidebar sidebar';
+  display: flex;
+  flex-direction: column;
+
+  @media (width >= 640px) {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-flow: column;
+    grid-template-areas:
+      'cart cart cart sidebar sidebar'
+      'vouchers vouchers vouchers sidebar sidebar';
+  }
 }
 
 a {
@@ -164,15 +186,21 @@ button.primary.checkout {
 
 .cart-item .item-info {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .item-actions {
+    align-self: flex-start;
+    margin: 0.3rem 0 0 0.5rem;
+  }
+
+  .info {
+    flex: 1;
+  }
 }
 
 .cart-item .image {
-  margin-right: 1rem;
-}
-
-.cart-item .item-info .item-actions {
-  align-self: flex-start;
-  margin: 0.3rem 0 0 0.5rem;
+  margin: 0 auto;
 }
 
 .cart-item .qty .label {

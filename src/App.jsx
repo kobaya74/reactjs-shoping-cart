@@ -18,9 +18,9 @@ export default function App() {
   }
 
   return (
-    <div className='App'>
+    <div className='page-wrapper'>
       <Header className={'header'} />
-      <div className='column main'>
+      <main className='column main'>
         <PageTitle>Shopping Cart</PageTitle>
         {itemsCart.length > 0 ? (
           <div className='cart-container'>
@@ -45,7 +45,7 @@ export default function App() {
             </Button>
           </>
         )}
-      </div>
+      </main>
       <Footer className={'footer'} />
     </div>
   );
