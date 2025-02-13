@@ -98,9 +98,7 @@ function CartItem({ item, setItemsCart }) {
     <div className='cart-item'>
       <div className='item-info'>
         <div className='image'>
-          <a href={title} title={title}>
-            <img src={image} width={150} height={150} alt={title} />
-          </a>
+          <img src={image} width={150} height={150} alt={title} />
         </div>
         <div className='info'>
           <div className='product-item-name'>
